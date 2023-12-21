@@ -1,0 +1,40 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.Card-Delete-Facturable {
+    padding: 20px;
+    margin: 10px;
+}
+
+.Card-Delete-Facturable:hover {
+    border-color: #8f1b1b;
+    background-color: #ffb0b0;
+    color:#890b0b ;
+}
+
+.Card-Facturable {
+    padding: 20px;
+    margin: 10px;
+}
+
+.Card-Facturable:hover {
+    border-color: #d5bc94;
+    background-color: #8bcbd1;
+    color: #133e62;
+}

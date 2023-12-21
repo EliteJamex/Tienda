@@ -1,0 +1,42 @@
+﻿@model List<Producto>
+@{
+}
+
+<div>
+    @if (Model.Count > 0)
+    {
+        <h2>Factura Pendiente</h2>
+        <hr />
+        <form method="POST">
+            <h4> Total </h4>
+            <span>$ @ViewBag.Total</span>
+            <input type="hidden" name="Saldo" value="@ViewBag.Total">
+            <hr />
+            <span>Observaciones:</span>
+            <textarea name="Observaciones" class="form form-control"></textarea>
+
+            <button class="btn btn-success"> <i class="fa fa-send"></i> Enviar</button>
+            <hr />
+            <h4>Productos Seleccionados:</h4>
+            <div class="row">
+            @for(var i= 0; i < Model.Count; i++)
+            {
+
+                <div class="col-md-3 col-sm-12">
+                    <div class="card Card-Delete-Facturable">
+                            <span><b>Nombre:</b></span> @Model[i].Nombre
+                            <br>
+                            <span><b>Valor:</b></span> $ @Model[i].Valor
+                            <br>
+                            <span><b>Cantidad:</b></span> @ViewBag.Componentes[i].Cantidad
+                        </div>      
+                </div>
+            }
+            </div>
+        </form>
+    }
+    else
+    {
+        <span class="text-primary">No tienes items pendientes</span>
+    }
+</div>

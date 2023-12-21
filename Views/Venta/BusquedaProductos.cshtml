@@ -1,0 +1,34 @@
+﻿@model List<Producto>
+@{
+}
+<div>
+    <h2>Busqueda de productos</h2>
+    <hr />
+    
+    <form method="post" asp-action="BusquedaProductos">
+        <label for="AbvProducto">Ingrese texto para la busqueda (<span class="text-primary">Minimo 3 letras para la busqueda</span>)</label>
+        <input type="text" name="AbvProducto" class="form form-control" placeholder="Ingresa un nombre de producto" />
+        <br />
+        <button style="width: 100%" class="btn btn-primary"><i class="fa fa-search"></i> Busqueda</button>
+    </form>
+    
+    <hr />
+    <div class="row">
+        @foreach(Producto Item in Model)
+        {
+            <div class="col-md-3 col-sm-1">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@Item.Nombre</h5>
+                        <p class="card-text">@Item.Valor</p>
+                        <form method="post" asp-action="AgregarAlCarrito">
+                            <input type="hidden" name="idProducto" value="@Item.Id"/>
+                            <button class="btn btn-success" a>Añadir al carrito</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,21 @@
+﻿@model List<Factura>
+
+@{
+}
+<h4>Historial de Facturas</h4>
+@if(Model != null)
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 col-sm-12 Card-Facturable">
+                <b>Codigo Factura:</b> FAC_@item.Id <br>
+                <b>Observaciones:</b> @item.Observacion <br>
+                <b>Fecha de Expedida:</b> @item.created <br>
+                <b>Realizado por Usuario_id:</b> @item.Usuario_id <br>
+            </div>
+        }
+    </div>
+}else{
+    <span class="text-primary">No se encontraron facturas disponibles</span>
+}
